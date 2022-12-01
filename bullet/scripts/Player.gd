@@ -8,6 +8,7 @@ var shoot_v = Vector2(0,0)
 
 func _physics_process(_delta):
 	input()
+	shoot()
 	animation()
 	move()
 
@@ -18,7 +19,8 @@ func input():
 	
 	shoot_v.x = Input.get_action_strength("shoot right") - Input.get_action_strength("shoot left")
 	shoot_v.y = Input.get_action_strength("shoot down") - Input.get_action_strength("shoot up")
-		
+	
+func shoot():
 	if shoot_v.length() != 0 and $ShootCooldown.is_stopped():
 		fire(shoot_v)
 		$ShootCooldown.start()

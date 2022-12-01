@@ -15,12 +15,19 @@ func _ready() -> void:
 	$StillTimer.connect("timeout", self, "still_on_timeout")
 	#$Area2D.connect("body_entered", self, "on_body_entered")
 
+func IA():
+	ShootIA()
+	MoveIA()
 
-func IA():	
+func ShootIA():	
 	if chasing and $HitTimer.is_stopped():
-		
 		if $FireTimer.is_stopped():
 			$FireTimer.start()
+	elif not $FireTimer.is_stopped():
+		$FireTimer.stop()
+	
+func MoveIA():
+	if chasing and $HitTimer.is_stopped():	
 		if $AttackTimer.is_stopped() and $StillTimer.is_stopped():
 			if distance_to_player < STILL_RANGE_MAX:
 				if	distance_to_player >= STILL_RANGE_MIN:
@@ -41,8 +48,7 @@ func IA():
 			else:
 				target_vel = direction_to_player
 		target_vel = target_vel.normalized()
-	elif not $FireTimer.is_stopped():
-		$FireTimer.stop()
+	
 		
 func animation():
 	if linear_vel.x == 0 and linear_vel.y == 0 and (not $AttackTimer.is_stopped() or not $StillTimer.is_stopped()):
