@@ -8,6 +8,40 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Bullet",
+"language": "GDScript",
+"path": "res://scripts/bullet.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Character",
+"language": "GDScript",
+"path": "res://scripts/character.gd"
+}, {
+"base": "Character",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://scripts/enemy.gd"
+}, {
+"base": "Character",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scripts/Player.gd"
+}, {
+"base": "Enemy",
+"class": "Shooting_Enemy",
+"language": "GDScript",
+"path": "res://scripts/shooting_enemy.gd"
+} ]
+_global_script_class_icons={
+"Bullet": "",
+"Character": "res://icons/Character.png",
+"Enemy": "res://icons/Enemy.png",
+"Player": "res://icons/Player.png",
+"Shooting_Enemy": "res://icons/Enemy1.png"
+}
+
 [application]
 
 config/name="bullet"

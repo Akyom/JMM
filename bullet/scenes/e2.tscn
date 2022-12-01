@@ -1,6 +1,6 @@
 [gd_scene load_steps=45 format=2]
 
-[ext_resource path="res://scripts/e2.gd" type="Script" id=1]
+[ext_resource path="res://scripts/enemy.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemy2/e2_idle.png" type="Texture" id=2]
 [ext_resource path="res://sprites/enemy2/e2_walk.png" type="Texture" id=3]
 
@@ -575,6 +575,9 @@ height = 6.0
 
 [node name="KinematicBody2D" type="KinematicBody2D" groups=["Enemy"]]
 script = ExtResource( 1 )
+MAX_SPEED = 180
+ACCELERATION = 100
+VISION_RANGE = 300
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -10 )

@@ -1,7 +1,11 @@
 extends Area2D
 
-var SPEED = 250
+class_name Bullet
+
+export(int) var SPEED
+export(String) var target_group
 var linear_vel = Vector2.ZERO
+
 
 func _ready() -> void:
 	connect("body_entered", self, "on_body_entered")
@@ -17,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	
 func on_body_entered(body: Node):
 	#print(body.name)
-	if(body.is_in_group("Player")) and body.has_method("take_damage"):
+	if(body.is_in_group(target_group)) and body.has_method("take_damage"):
 		body.take_damage(self)
 		queue_free()
 	elif(body.is_in_group("Wall")):
