@@ -6,14 +6,19 @@ export(int) var VISION_RANGE
 
 var chasing = false
 
-export(NodePath) var target
+export(NodePath) var target = "../Player"
 onready var _target = get_node(target) as Node2D
 var distance_to_player
-var direction_to_player 
+var direction_to_player
+var indx = -1
+
+signal i_died(me)
 
 func _ready() -> void:
 	$ChasingTimer.connect("timeout", self, "chasing_on_timeout")
 	$Area2D.connect("body_entered", self, "on_body_entered")
+	var GamePlay = get_node("../GamePlay")
+	connect("i_died", GamePlay, "enemy_died")
 
 func _physics_process(_delta):
 	where_player()
@@ -30,8 +35,14 @@ func IA():
 		target_vel.y = direction_to_player.y
 			
 func where_player():
-	distance_to_player = global_position.distance_to(_target.global_position)
-	direction_to_player = global_position.direction_to(_target.global_position)
+	if (_target != null):
+		distance_to_player = global_position.distance_to(_target.global_position)
+	else:
+		distance_to_player = 10000
+	if (_target != null):
+		direction_to_player = global_position.direction_to(_target.global_position)
+	else:
+		direction_to_player = Vector2(0, 0)
 
 func chase():
 	if _target:
@@ -51,3 +62,10 @@ func on_body_entered(body: Node):
 	if(body.is_in_group("Player")) and body.has_method("take_damage"):
 		body.take_damage(self)
 		$HitTimer.start()
+func take_damage(instigator: Node2D):
+	var push = Vector2(global_position.x - instigator.global_position.x, global_position.y - instigator.global_position.y)
+	push = push.normalized()
+	linear_vel.x = push.x * DMG_SPEED * 3
+	linear_vel.y = push.y * DMG_SPEED * 3
+	$DamageTimer.start()
+	emit_signal("i_died", self)

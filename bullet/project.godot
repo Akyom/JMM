@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/enemy.gd"
 }, {
+"base": "Node",
+"class": "Enemy_Factory",
+"language": "GDScript",
+"path": "res://scripts/enemy_factory.gd"
+}, {
 "base": "Character",
 "class": "Player",
 "language": "GDScript",
@@ -38,6 +43,7 @@ _global_script_class_icons={
 "Bullet": "",
 "Character": "res://icons/Character.png",
 "Enemy": "res://icons/Enemy.png",
+"Enemy_Factory": "",
 "Player": "res://icons/Player.png",
 "Shooting_Enemy": "res://icons/Enemy1.png"
 }
