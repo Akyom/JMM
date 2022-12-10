@@ -48,3 +48,6 @@ func take_damage(instigator: Node2D):
 	linear_vel.y = push.y * DMG_SPEED * 3
 	$DamageTimer.start()
 
+func setPosition(x, y):
+	global_position = Vector2(x, y)
+	pass
