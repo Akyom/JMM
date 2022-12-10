@@ -1,10 +1,9 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/tileset/TX Tileset Grass.png" type="Texture" id=2]
 [ext_resource path="res://scenes/e1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/e2.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scripts/enemy_factory.gd" type="Script" id=6]
 [ext_resource path="res://scenes/GamePlay.gd" type="Script" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
@@ -374,6 +373,3 @@ position = Vector2( 771, 678 )
 
 [node name="GamePlay" type="Node" parent="."]
 script = ExtResource( 7 )
-
-[node name="Enemy_Factory" type="Node" parent="GamePlay"]
-script = ExtResource( 6 )
