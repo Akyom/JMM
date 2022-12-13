@@ -20,6 +20,8 @@ func _process(_delta):
 		times += 1
 		var enemy2 = Factory.new_shooting_enemy(0.00001, 0.00001)
 		addEnemy(enemy2)
+		var enemy3 = Factory.new_speedster_enemy(400, 400)
+		addEnemy(enemy3)
 
 func addEnemy(enemy):
 	if (free_pos.size() == 0):

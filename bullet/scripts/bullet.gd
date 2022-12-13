@@ -4,6 +4,7 @@ class_name Bullet
 
 export(int) var SPEED
 export(String) var target_group
+export(String) var DAMAGE = 1
 var linear_vel = Vector2.ZERO
 
 

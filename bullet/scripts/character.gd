@@ -7,6 +7,7 @@ var target_vel = Vector2(0,0)
 export(int) var MAX_SPEED
 export(int) var DMG_SPEED = 250 
 export(int) var ACCELERATION
+export(int) var HP = 2
 
 var update_animation = true
 
@@ -47,6 +48,9 @@ func take_damage(instigator: Node2D):
 	linear_vel.x = push.x * DMG_SPEED * 3
 	linear_vel.y = push.y * DMG_SPEED * 3
 	$DamageTimer.start()
+	HP = HP - instigator.DAMAGE
+	if HP < 0:
+		emit_signal("i_died", self)
 
 func setPosition(x, y):
 	global_position = Vector2(x, y)

@@ -3,6 +3,7 @@ extends Character
 class_name Enemy, "res://icons/Enemy.png"
 
 export(int) var VISION_RANGE
+export(int) var DAMAGE = 1
 
 var chasing = false
 
@@ -62,10 +63,4 @@ func on_body_entered(body: Node):
 	if(body.is_in_group("Player")) and body.has_method("take_damage"):
 		body.take_damage(self)
 		$HitTimer.start()
-func take_damage(instigator: Node2D):
-	var push = Vector2(global_position.x - instigator.global_position.x, global_position.y - instigator.global_position.y)
-	push = push.normalized()
-	linear_vel.x = push.x * DMG_SPEED * 3
-	linear_vel.y = push.y * DMG_SPEED * 3
-	$DamageTimer.start()
-	emit_signal("i_died", self)
+
