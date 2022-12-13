@@ -1,10 +1,9 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/tileset/TX Tileset Grass.png" type="Texture" id=2]
-[ext_resource path="res://scenes/e1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/e2.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/GamePlay.gd" type="Script" id=7]
+[ext_resource path="res://Sound.wav" type="AudioStream" id=3]
+[ext_resource path="res://scripts/GamePlay.gd" type="Script" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 16.1434, 32, 0, 32, 0, 0, 15.5852, 0 )
@@ -362,14 +361,10 @@ tile_data = PoolIntArray( -1769507, 0, 0, -1769506, 0, 0, -1769505, 0, 0, -17695
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 68, 60 )
 
-[node name="KinematicBody2D2" parent="." instance=ExtResource( 3 )]
-position = Vector2( -692, -599 )
-
-[node name="KinematicBody2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( -105, 330 )
-
-[node name="KinematicBody2D3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 771, 678 )
-
 [node name="GamePlay" type="Node" parent="."]
 script = ExtResource( 7 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 0.333
+autoplay = true
