@@ -6,6 +6,13 @@ export(Resource) var Bullet
 
 var shoot_v = Vector2(0,0)
 
+signal npc_next(me)
+
+func _ready() -> void:
+	#connect("active"..
+	var GamePlay = get_node("../GamePlay") #Hacer un signal handler??
+	connect("npc_next", GamePlay, "npc_action")
+
 func _physics_process(_delta):
 	input()
 	shoot()
@@ -19,6 +26,19 @@ func input():
 	
 	shoot_v.x = Input.get_action_strength("shoot right") - Input.get_action_strength("shoot left")
 	shoot_v.y = Input.get_action_strength("shoot down") - Input.get_action_strength("shoot up")
+	
+	if Input.is_action_just_pressed("active"):
+		var npcs = get_tree().get_nodes_in_group("NPC")
+		var npc_close = false
+		for npc in npcs:
+			if npc.global_position.distance_to(self.global_position):
+				emit_signal("npc_next", npc)
+				npc_close = true
+				break
+		#if not npc_close:
+		#	emit_signal("active")
+	
+	
 	
 func shoot():
 	if shoot_v.length() != 0 and $ShootCooldown.is_stopped():

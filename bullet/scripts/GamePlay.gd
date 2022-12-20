@@ -6,22 +6,24 @@ var Factory = EnemyFactory.new()
 var enemies = []
 var free_pos = []
 var number_of_enemies = 1
-func _ready():
-	pass
+var fight = false
+
 
 func _process(_delta):
-	if (times == 0):
-		for x in range(-number_of_enemies/2, number_of_enemies/2):
-			for y in range(-number_of_enemies/2, number_of_enemies/2):
-				var enemy1 = Factory.new_shooting_enemy(0, 0)
-				addEnemy(enemy1)
-		var enemy = Factory.new_shooting_enemy(0, 0)
-		addEnemy(enemy)
-		times += 1
-		var enemy2 = Factory.new_shooting_enemy(0.00001, 0.00001)
-		addEnemy(enemy2)
-		var enemy3 = Factory.new_speedster_enemy(400, 400)
-		addEnemy(enemy3)
+	if times == 0:
+		var mai = Factory.new_mago_inicio(0, -100)
+		addNPC(mai)
+		times = times + 1
+	if fight:
+		oleada()
+		times = times + 1
+		fight = false
+
+func addNPC(npc): #que mas?
+	get_parent().add_child(npc)
+	
+func removeNPC(npc): #que mas?
+	npc.queue_free()
 
 func addEnemy(enemy):
 	if (free_pos.size() == 0):
@@ -38,3 +40,18 @@ func enemy_died(enemy):
 		enemies[enemy.indx] = null
 		free_pos.append(enemy.indx)
 	enemy.queue_free()
+
+func npc_action(npc):
+	npc.player_input()
+
+func start_fight():
+	fight = true
+	
+func oleada():
+	if times == 1:
+		var enemy1 = Factory.new_shooting_enemy(-50, -150)
+		var enemy2 = Factory.new_shooting_enemy(0, -150)
+		var enemy3 = Factory.new_shooting_enemy(50, -150)
+		addEnemy(enemy1)
+		addEnemy(enemy2)
+		addEnemy(enemy3)
