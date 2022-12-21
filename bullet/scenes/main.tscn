@@ -367,8 +367,9 @@ __meta__ = {
 [node name="GamePlay" type="Node" parent="."]
 script = ExtResource( 7 )
 
-[node name="SpawnTimer" type="Timer" parent="GamePlay"]
+[node name="OleadaTimer" type="Timer" parent="GamePlay"]
 wait_time = 5.0
+one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
