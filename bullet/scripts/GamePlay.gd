@@ -7,7 +7,7 @@ var enemies = []
 var free_pos = []
 var number_of_enemies = 0
 var start_of_fight = false #es true en el momento en que comienza una oleada
-var fight = false #es true si se está peleando
+var fighting = false #es true si se está peleando
 var next_pause = false #es true si la oleada actual es la última antes de una pausa
 
 func _ready() -> void:
@@ -21,21 +21,20 @@ func _process(_delta): #0-1, pause
 		times = times + 1
 		
 	if start_of_fight:
-		print("ke")
 		oleada()
 		times = times + 1
 		start_of_fight = false
-		fight = true
+		fighting = true
 		
-	if number_of_enemies == 0 and fight:
+	if number_of_enemies == 0 and fighting:
 		if next_pause:
 			oleada()
 			times = times + 1
-			fight = false
+			fighting = false
 			next_pause = false
 		else:	
 			$OleadaTimer.start()
-			fight = false
+			fighting = false
 
 func addNPC(npc): #que mas?
 	get_parent().add_child(npc)
@@ -60,9 +59,6 @@ func enemy_died(enemy):
 	#	free_pos.append(enemy.indx)
 	enemy.queue_free()
 	number_of_enemies = number_of_enemies -1
-
-func npc_action(npc):
-	npc.player_input()
 
 func start_fight():
 	start_of_fight = true
@@ -139,4 +135,5 @@ func oleada():
 			next_pause = true
 		#5: # 1-5 (pause)
 			
-			
+func npc_action(npc):
+	npc.player_input()
