@@ -23,7 +23,8 @@ func _physics_process(delta: float) -> void:
 func on_body_entered(body: Node):
 	#print(body.name)
 	if(body.is_in_group(target_group)) and body.has_method("take_damage"):
-		body.take_damage(self)
-		queue_free()
+		var took_damage = body.take_damage(self)
+		if took_damage:
+			queue_free()
 	elif(body.is_in_group("Wall")):
 		queue_free()

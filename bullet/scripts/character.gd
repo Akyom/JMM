@@ -11,6 +11,8 @@ export(int) var HP = 2
 
 var update_animation = true
 
+var invulnerability = false
+
 onready var playback = $AnimationTree.get("parameters/playback")
 
 func move():
@@ -43,14 +45,16 @@ func animation():
 				playback.travel("walk back")
 
 func take_damage(instigator: Node2D):
-	var push = Vector2(global_position.x - instigator.global_position.x, global_position.y - instigator.global_position.y)
-	push = push.normalized()
-	linear_vel.x = push.x * DMG_SPEED * 3
-	linear_vel.y = push.y * DMG_SPEED * 3
-	$DamageTimer.start()
-	HP = HP - instigator.DAMAGE
-	if HP < 0:
-		emit_signal("i_died", self)
+	if not invulnerability:
+		var push = Vector2(global_position.x - instigator.global_position.x, global_position.y - instigator.global_position.y)
+		push = push.normalized()
+		linear_vel.x = push.x * DMG_SPEED * 3
+		linear_vel.y = push.y * DMG_SPEED * 3
+		$DamageTimer.start()
+		HP = HP - instigator.DAMAGE
+		if HP < 0:
+			emit_signal("i_died", self)
+	return not invulnerability
 
 func setPosition(x, y):
 	global_position = Vector2(x, y)
