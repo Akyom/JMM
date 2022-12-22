@@ -7,6 +7,7 @@ var target_vel = Vector2(0,0)
 export(int) var MAX_SPEED
 export(int) var DMG_SPEED = 250 
 export(int) var ACCELERATION
+export(int) var MAX_HP = 2
 export(int) var HP = 2
 
 var update_animation = true

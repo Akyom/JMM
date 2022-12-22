@@ -7,11 +7,13 @@ export(Resource) var Bullet
 var shoot_v = Vector2(0,0)
 
 signal npc_next(me)
+signal health_changed(new_value)
 
 func _ready() -> void:
 	#connect("active"..
 	var GamePlay = get_node("../GamePlay") #Hacer un signal handler??
 	connect("npc_next", GamePlay, "npc_action")
+	
 
 func _physics_process(_delta):
 	input()
@@ -51,5 +53,10 @@ func fire(shoot_v: Vector2):
 	bullet.global_position = $BulletSpawn.global_position
 	get_parent().add_child(bullet)
 
+func take_damage(instigator: Node2D):
+	.take_damage(instigator) # call parent's (Character) method
+	# deal with the UI (hearts)
+	emit_signal("health_changed", HP)
 	
+	# if HP == 0 do something (emit signal i_died?)
 	
