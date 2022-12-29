@@ -10,6 +10,11 @@ var start_of_fight = false #es true en el momento en que comienza una oleada
 var fighting = false #es true si se está peleando
 var next_pause = false #es true si la oleada actual es la última antes de una pausa
 
+signal start_wave_progress(total_number_of_enemies)
+signal start_wave_timer(wait_time)
+signal stop_wave_timer()
+signal decrease_wave_progress(current_number_of_enemies)
+
 func _ready() -> void:
 	$OleadaTimer.connect("timeout", self, "oleada_on_timeout")
 	
@@ -22,6 +27,7 @@ func _process(_delta): #0-1, pause
 		
 	if start_of_fight:
 		oleada()
+		emit_signal("start_wave_progress", number_of_enemies)
 		times = times + 1
 		start_of_fight = false
 		fighting = true
@@ -33,6 +39,7 @@ func _process(_delta): #0-1, pause
 			fighting = false
 			next_pause = false
 		else:	
+			emit_signal("start_wave_timer", $OleadaTimer.wait_time)
 			$OleadaTimer.start()
 			fighting = false
 
@@ -58,12 +65,14 @@ func enemy_died(enemy):
 	#	enemies[enemy.indx] = null
 	#	free_pos.append(enemy.indx)
 	enemy.queue_free()
-	number_of_enemies = number_of_enemies -1
+	number_of_enemies = number_of_enemies - 1
+	emit_signal("decrease_wave_progress", number_of_enemies)
 
 func start_fight():
 	start_of_fight = true
 	
 func oleada_on_timeout():
+	emit_signal("stop_wave_timer")
 	start_of_fight = true
 	
 func oleada():
