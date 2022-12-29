@@ -9,6 +9,10 @@ var shoot_v = Vector2(0,0)
 signal npc_next(me)
 signal health_changed(new_value)
 
+ #CREAR UN ADDPLAYER CON APPEAR, INVULNERABILITY Y BLOQUEO DE MOVE Y DE SHOOT
+ #APPEAR, INV Y BLOQUEAR SHOOT A ENEMIGOS
+ #TIMER?
+
 func _ready() -> void:
 	#connect("active"..
 	var GamePlay = get_node("../GamePlay") #Hacer un signal handler??
