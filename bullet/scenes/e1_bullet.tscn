@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/bullet.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 7.07107
+radius = 7.0
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -120,7 +120,7 @@ start_node = "travel"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=6]
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" groups=["BULLET"]]
 script = ExtResource( 2 )
 SPEED = 250
 target_group = "Player"

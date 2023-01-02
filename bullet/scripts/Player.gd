@@ -1,19 +1,17 @@
 extends Character
 
 class_name Player, "res://icons/Player.png"
-
 export(Resource) var Bullet
 
 var shoot_v = Vector2(0,0)
 
 signal npc_next(me)
 signal health_changed(new_value)
-
+var current_active = null
 func _ready() -> void:
 	#connect("active"..
 	var GamePlay = get_node("../GamePlay") #Hacer un signal handler??
 	connect("npc_next", GamePlay, "npc_action")
-	
 
 func _physics_process(_delta):
 	input()
@@ -39,6 +37,9 @@ func input():
 				break
 		#if not npc_close:
 		#	emit_signal("active")
+	if Input.is_action_just_pressed("ability_reject"):
+		active()
+		pass
 	
 	
 	
@@ -59,4 +60,28 @@ func take_damage(instigator: Node2D):
 	emit_signal("health_changed", HP)
 	
 	# if HP == 0 do something (emit signal i_died?)
-	
+
+func active():
+	if (not current_active):
+		return
+	current_active.cast()
+
+func drop_active():
+	if (not current_active):
+		return
+	remove_child(current_active)
+	current_active.drop()
+	current_active = null
+	return
+
+func pick_up_active(spell):
+	if (not $PickActiveCooldown.is_stopped()):
+		return
+	if (current_active):
+		drop_active()
+	print("PickActive")
+	current_active = spell
+	current_active.picked_up_by(self)
+	add_child(current_active)
+	$PickActiveCooldown.start()
+	pass

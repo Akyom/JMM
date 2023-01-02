@@ -567,7 +567,7 @@ states/walk/position = Vector2( 102, -66 )
 "states/walk right/position" = Vector2( 737.391, -40.2342 )
 transitions = [ "walk", "idle", SubResource( 37 ), "idle", "walk", SubResource( 31 ), "idle right", "walk right", SubResource( 59 ), "walk right", "idle right", SubResource( 60 ), "idle right", "idle back", SubResource( 61 ), "idle back", "idle right", SubResource( 62 ), "idle right", "idle", SubResource( 63 ), "idle", "idle right", SubResource( 64 ), "idle left", "idle back", SubResource( 65 ), "idle back", "idle left", SubResource( 66 ), "idle left", "idle", SubResource( 67 ), "idle", "idle left", SubResource( 68 ), "walk left", "idle left", SubResource( 69 ), "idle left", "walk left", SubResource( 70 ), "idle back", "walk back", SubResource( 71 ), "walk back", "idle back", SubResource( 72 ), "idle left", "idle right", SubResource( 73 ), "idle right", "idle left", SubResource( 74 ), "idle", "idle back", SubResource( 75 ), "idle back", "idle", SubResource( 76 ) ]
 start_node = "idle"
-graph_offset = Vector2( -201.609, -213.569 )
+graph_offset = Vector2( -201.609, -352 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=52]
 
@@ -616,4 +616,7 @@ one_shot = true
 
 [node name="DamageTimer" type="Timer" parent="."]
 wait_time = 0.16
+one_shot = true
+
+[node name="PickActiveCooldown" type="Timer" parent="."]
 one_shot = true

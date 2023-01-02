@@ -1,0 +1,9 @@
+extends ActiveSpell
+
+## Info about the active spell
+func _ready():
+	# indx = 
+	pass
+
+func cast():
+	pass
