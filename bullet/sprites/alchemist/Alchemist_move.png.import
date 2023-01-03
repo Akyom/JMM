@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Alchemist_walk.png-b6ff91693afe82dbdb37edaf42cef7dc.stex"
+path="res://.import/Alchemist_move.png-f63dca7472f58ff1a681b04867f781c9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/alchemist/Alchemist_walk.png"
-dest_files=[ "res://.import/Alchemist_walk.png-b6ff91693afe82dbdb37edaf42cef7dc.stex" ]
+source_file="res://sprites/alchemist/Alchemist_move.png"
+dest_files=[ "res://.import/Alchemist_move.png-f63dca7472f58ff1a681b04867f781c9.stex" ]
 
 [params]
 

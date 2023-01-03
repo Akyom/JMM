@@ -8,6 +8,7 @@ var shoot_v = Vector2(0,0)
 signal npc_next(me)
 signal health_changed(new_value)
 var current_active = null
+
 func _ready() -> void:
 	#connect("active"..
 	var GamePlay = get_node("../GamePlay") #Hacer un signal handler??

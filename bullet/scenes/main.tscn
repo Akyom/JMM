@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/tileset/TX Tileset Grass.png" type="Texture" id=2]
@@ -339,8 +339,6 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 } ]
 0/z_index = 0
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=31]
-
 [node name="Node2D" type="Node2D"]
 __meta__ = {
 "_edit_lock_": true
@@ -369,9 +367,6 @@ __meta__ = {
 MAX_HP = 4
 HP = 4
 
-[node name="AnimationTree" parent="Player" index="3"]
-parameters/playback = SubResource( 31 )
-
 [node name="GamePlay" type="Node" parent="."]
 script = ExtResource( 7 )
 
@@ -385,5 +380,3 @@ volume_db = -42.095
 autoplay = true
 
 [node name="UI" parent="." instance=ExtResource( 4 )]
-
-[editable path="Player"]

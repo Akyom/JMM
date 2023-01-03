@@ -17,15 +17,17 @@ var invulnerability = false
 onready var playback = $AnimationTree.get("parameters/playback")
 
 func move():
-	linear_vel.x = move_toward(linear_vel.x, target_vel.x * MAX_SPEED, ACCELERATION)
-	linear_vel.y = move_toward(linear_vel.y, target_vel.y * MAX_SPEED, ACCELERATION)
-	linear_vel =  move_and_slide(linear_vel, Vector2.UP)
+	var current_node = playback.get_current_node()
+	if current_node != "appear" and current_node != "disappear":
+		linear_vel.x = move_toward(linear_vel.x, target_vel.x * MAX_SPEED, ACCELERATION)
+		linear_vel.y = move_toward(linear_vel.y, target_vel.y * MAX_SPEED, ACCELERATION)
+		linear_vel =  move_and_slide(linear_vel, Vector2.UP)
 	
 func animation():
 	if linear_vel.x == 0 and linear_vel.y == 0:
 		var current_node = playback.get_current_node()
 		#print(current_node)
-		if current_node == "walk":
+		if current_node == "walk" or current_node == "appear":
 			playback.travel("idle")
 		elif current_node == "walk back":
 			playback.travel("idle back")
