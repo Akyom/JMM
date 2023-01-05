@@ -1,6 +1,5 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=48 format=2]
 
-[ext_resource path="res://sprites/alchemist/Alchemist_idle.png" type="Texture" id=1]
 [ext_resource path="res://sprites/alchemist/Alchemist_move.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=3]
 [ext_resource path="res://scenes/player_bullet.tscn" type="PackedScene" id=4]
@@ -22,7 +21,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ ExtResource( 1 ) ]
+"values": [ null ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:hframes")
@@ -71,6 +70,30 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, -13 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:invulnerability")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath(".:movil")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=77]
@@ -123,6 +146,30 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:invulnerability")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:movil")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -648,6 +695,10 @@ graph_offset = Vector2( -201.609, -205.018 )
 script = ExtResource( 3 )
 MAX_SPEED = 300
 ACCELERATION = 100
+MAX_HP = 3
+HP = 3
+invulnerability = true
+movil = false
 Bullet = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -655,7 +706,6 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -13 )
-texture = ExtResource( 1 )
 hframes = 4
 vframes = 4
 

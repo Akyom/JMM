@@ -12,13 +12,13 @@ export(int) var HP = 2
 
 var update_animation = true
 
-var invulnerability = false
+export var invulnerability = false
+export var movil = true
 
 onready var playback = $AnimationTree.get("parameters/playback")
 
 func move():
-	var current_node = playback.get_current_node()
-	if current_node != "appear" and current_node != "disappear":
+	if movil:
 		linear_vel.x = move_toward(linear_vel.x, target_vel.x * MAX_SPEED, ACCELERATION)
 		linear_vel.y = move_toward(linear_vel.y, target_vel.y * MAX_SPEED, ACCELERATION)
 		linear_vel =  move_and_slide(linear_vel, Vector2.UP)

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/e2_idle.png-b964dad8cdd1dae7cb08ad61a1809be6.stex"
+path="res://.import/infant_smoke.png-b3988ddeb35c033b82330582f9eef4e5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemy2/e2_idle.png"
-dest_files=[ "res://.import/e2_idle.png-b964dad8cdd1dae7cb08ad61a1809be6.stex" ]
+source_file="res://sprites/enemy2/infant_smoke.png"
+dest_files=[ "res://.import/infant_smoke.png-b3988ddeb35c033b82330582f9eef4e5.stex" ]
 
 [params]
 
