@@ -58,11 +58,6 @@ _global_script_classes=[ {
 "class": "Shooting_Enemy",
 "language": "GDScript",
 "path": "res://scripts/shooting_enemy.gd"
-}, {
-"base": "Node",
-"class": "Standard_Bullet_Spell",
-"language": "GDScript",
-"path": "res://scripts/Standard_Bullet_Spell.gd"
 } ]
 _global_script_class_icons={
 "ActiveSpell": "",
@@ -74,8 +69,7 @@ _global_script_class_icons={
 "EnemyFactory": "",
 "Player": "res://icons/Player.png",
 "RepelBulletsActiveSpell": "",
-"Shooting_Enemy": "res://icons/Enemy1.png",
-"Standard_Bullet_Spell": ""
+"Shooting_Enemy": "res://icons/Enemy1.png"
 }
 
 [application]

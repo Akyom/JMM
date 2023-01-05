@@ -5,7 +5,6 @@ class_name Shooting_Enemy, "res://icons/Enemy1.png"
 export(int) var STILL_RANGE_MIN
 export(int) var STILL_RANGE_MAX
 var way = 0
-var Spell
 
 export(Resource) var Bullet
 
@@ -85,10 +84,3 @@ func fire(shoot_v: Vector2):
 	bullet.global_position = $BulletSpawn.global_position
 	bullet._target = _target
 	get_parent().add_child(bullet)
-
-func fire2(shoot_v: Vector2):
-	var bullet = Spell.cast($BulletSpawn.global_position, shoot_v)
-	get_parent().add_child(bullet)
-
-func receive(newSpell):
-	Spell = newSpell
