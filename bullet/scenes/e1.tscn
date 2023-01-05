@@ -698,8 +698,6 @@ height = 4.0
 script = ExtResource( 3 )
 MAX_SPEED = 100
 ACCELERATION = 100
-invulnerability = true
-movil = false
 VISION_RANGE = 310
 STILL_RANGE_MIN = 80
 STILL_RANGE_MAX = 120
@@ -707,6 +705,7 @@ Bullet = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -13 )
+texture = ExtResource( 5 )
 hframes = 4
 vframes = 4
 frame = 4
