@@ -20,15 +20,17 @@ func start_wave_timer(wait_time):
 	progress_bar.value = 100
 	show_progress_bar()
 	
-func stop_wave_timer():
+# Not beeing used. Perhaps should be removed.
+func stop_wave_timer(current_wave):
 	hide_progress_bar()
 	
 func _process(delta):
 	if active:
-		progress_bar.value = oleada_timer.time_left * value_per_second 
+		progress_bar.value = oleada_timer.time_left * value_per_second
+		if progress_bar.value <= 0:
+			hide_progress_bar() 
 	
 func _ready():
-	GamePlay.connect("start_wave_timer", self, "start_wave_timer")
-	GamePlay.connect("stop_wave_timer", self, "stop_wave_timer")
+	GamePlay.connect("wave_stopped", self, "start_wave_timer")
 	
 	hide_progress_bar()

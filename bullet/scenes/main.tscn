@@ -364,8 +364,8 @@ tile_data = PoolIntArray( -1769507, 0, 0, -1769506, 0, 0, -1769505, 0, 0, -17695
 __meta__ = {
 "_edit_lock_": true
 }
-MAX_HP = 4
-HP = 4
+MAX_HP = 3
+HP = 3
 
 [node name="GamePlay" type="Node" parent="."]
 script = ExtResource( 7 )
