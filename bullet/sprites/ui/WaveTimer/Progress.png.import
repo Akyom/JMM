@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/e2_idle.png-b964dad8cdd1dae7cb08ad61a1809be6.stex"
+path="res://.import/Progress.png-c4207ef4854b5e09c77ae0908dc5cd29.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemy2/e2_idle.png"
-dest_files=[ "res://.import/e2_idle.png-b964dad8cdd1dae7cb08ad61a1809be6.stex" ]
+source_file="res://sprites/ui/WaveTimer/Progress.png"
+dest_files=[ "res://.import/Progress.png-c4207ef4854b5e09c77ae0908dc5cd29.stex" ]
 
 [params]
 

@@ -4,9 +4,16 @@ var times = 0
 var factory = EnemyFactory.new()
 var active_spell_factory = ActiveSpellFactory.new()
 var number_of_enemies = 0
-var start_of_fight = false #es true en el momento en que comienza una oleada
-var fighting = false #es true si se está peleando
-var next_pause = false #es true si la oleada actual es la última antes de una pausa
+var start_of_fight = false # es true en el momento en que comienza una oleada
+var fighting = false # es true si se está peleando
+var next_pause = false # es true si la oleada actual es la última antes de una pausa
+export var NUMBER_OF_WAVES = 4
+
+# OBS: wave number y current number of enemies no son estrictamente
+#      necesarios. Deberia sacarlos?
+signal wave_started(wave_number, total_number_of_enemies)
+signal wave_stopped(wait_time)
+signal enemy_slain(current_number_of_enemies)
 
 func _ready() -> void:
 	$OleadaTimer.connect("timeout", self, "oleada_on_timeout")
@@ -19,6 +26,7 @@ func _process(_delta): #0-1, pause
 		
 	if start_of_fight:
 		oleada()
+		emit_signal("wave_started", times, number_of_enemies)
 		times = times + 1
 		start_of_fight = false
 		fighting = true
@@ -30,6 +38,7 @@ func _process(_delta): #0-1, pause
 			fighting = false
 			next_pause = false
 		else:	
+			emit_signal("wave_stopped", $OleadaTimer.wait_time)
 			$OleadaTimer.start()
 			fighting = false
 
@@ -49,12 +58,14 @@ func addActiveSpell(spell):
 	
 func enemy_died(enemy):
 	enemy.queue_free()
-	number_of_enemies = number_of_enemies -1
+	number_of_enemies = number_of_enemies - 1
+	emit_signal("enemy_slain", number_of_enemies)
 
 func start_fight():
 	start_of_fight = true
 	
 func oleada_on_timeout():
+	emit_signal("stop_wave_timer")
 	start_of_fight = true
 	
 func oleada():

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/e2_walk.png-37c41d7a3b37fadaf92525dca838fe41.stex"
+path="res://.import/Alchemist_blue_apareciendo.png-3cf8300ad6dc4ef949d5aa635b81149f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemy2/e2_walk.png"
-dest_files=[ "res://.import/e2_walk.png-37c41d7a3b37fadaf92525dca838fe41.stex" ]
+source_file="res://sprites/wizard/Alchemist_blue_apareciendo.png"
+dest_files=[ "res://.import/Alchemist_blue_apareciendo.png-3cf8300ad6dc4ef949d5aa635b81149f.stex" ]
 
 [params]
 
