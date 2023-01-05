@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/e1_walk.png-ef04ac085aa862e648a96d835e207fb6.stex"
+path="res://.import/verde_smoke.png-069cb0adcd033315104df2e03f616fad.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemy1/e1_walk.png"
-dest_files=[ "res://.import/e1_walk.png-ef04ac085aa862e648a96d835e207fb6.stex" ]
+source_file="res://sprites/enemy1/verde_smoke.png"
+dest_files=[ "res://.import/verde_smoke.png-069cb0adcd033315104df2e03f616fad.stex" ]
 
 [params]
 

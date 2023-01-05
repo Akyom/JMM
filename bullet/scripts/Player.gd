@@ -9,6 +9,10 @@ var shoot_v = Vector2(0,0)
 signal npc_next(me)
 signal health_changed(new_value)
 
+ #CREAR UN ADDPLAYER CON APPEAR, INVULNERABILITY Y BLOQUEO DE MOVE Y DE SHOOT
+ #APPEAR, INV Y BLOQUEAR SHOOT A ENEMIGOS
+ #TIMER?
+
 func _ready() -> void:
 	#connect("active"..
 	var GamePlay = get_node("../GamePlay") #Hacer un signal handler??
@@ -54,9 +58,9 @@ func fire(shoot_v: Vector2):
 	get_parent().add_child(bullet)
 
 func take_damage(instigator: Node2D):
-	.take_damage(instigator) # call parent's (Character) method
+	var took_damage = .take_damage(instigator) # call parent's (Character) method
 	# deal with the UI (hearts)
 	emit_signal("health_changed", HP)
-	
+	return took_damage
 	# if HP == 0 do something (emit signal i_died?)
 	

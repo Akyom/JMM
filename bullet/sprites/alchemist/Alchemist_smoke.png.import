@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Alchemist_idle.png-256f32558c458061d45d5004fbecef14.stex"
+path="res://.import/Alchemist_smoke.png-6ce9d0d17e2b37504641a5661a211b2a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/alchemist/Alchemist_idle.png"
-dest_files=[ "res://.import/Alchemist_idle.png-256f32558c458061d45d5004fbecef14.stex" ]
+source_file="res://sprites/alchemist/Alchemist_smoke.png"
+dest_files=[ "res://.import/Alchemist_smoke.png-6ce9d0d17e2b37504641a5661a211b2a.stex" ]
 
 [params]
 
