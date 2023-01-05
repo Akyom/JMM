@@ -36,12 +36,9 @@ func input():
 				emit_signal("npc_next", npc)
 				npc_close = true
 				break
-		#if not npc_close:
-		#	emit_signal("active")
-	if Input.is_action_just_pressed("ability_reject"):
-		active()
-		pass
-	
+		if not npc_close:
+			active()
+			pass
 	
 	
 func shoot():
