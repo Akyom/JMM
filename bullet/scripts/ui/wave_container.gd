@@ -1,8 +1,8 @@
-extends Control
+extends HBoxContainer
 
 onready var GamePlay = get_node("../../GamePlay")
-onready var wave_counter = get_node("LabelContainer/WaveCounter")
-onready var enemies_counter = get_node("LabelContainer/EnemiesCounter")
+onready var wave_counter = get_node("WaveCounter")
+onready var enemies_counter = get_node("EnemiesCounter")
 
 var total_number_of_enemies = 0
 var total_number_of_waves = 0
