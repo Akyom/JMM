@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 
 		### Verlet's method
 		# 1. x(t+dt) = x(t) + v(t) * dt + 0.5 * a(t) * dt^2
-		# 1.5 calculate a(t+dt)
+		# 1.5 calculate a(t+dt) using x(t+dt)
 		# 2. v(t+dt) = v(t) + 0.5 * (a(t) + a(t+dt)) * dt
 		
 		# Step 1
