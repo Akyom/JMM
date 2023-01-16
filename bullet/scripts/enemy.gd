@@ -13,8 +13,6 @@ var distance_to_player
 var direction_to_player
 var indx = -1
 
-signal i_died(me)
-
 func _ready() -> void:
 	$ChasingTimer.connect("timeout", self, "chasing_on_timeout")
 	$Area2D.connect("body_entered", self, "on_body_entered")

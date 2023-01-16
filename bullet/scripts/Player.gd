@@ -32,7 +32,7 @@ func input():
 		var npcs = get_tree().get_nodes_in_group("NPC")
 		var npc_close = false
 		for npc in npcs:
-			if npc.global_position.distance_to(self.global_position):
+			if npc.global_position.distance_to(self.global_position) < 50:
 				emit_signal("npc_next", npc)
 				npc_close = true
 				break

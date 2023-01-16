@@ -692,12 +692,14 @@ graph_offset = Vector2( 0, 9.07854 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=40]
 
 [sub_resource type="CapsuleShape2D" id=41]
-height = 4.0
+height = 6.0
 
 [node name="KinematicBody2D" type="KinematicBody2D" groups=["Enemy"]]
 script = ExtResource( 3 )
 MAX_SPEED = 100
 ACCELERATION = 100
+invulnerability = true
+movil = false
 VISION_RANGE = 310
 STILL_RANGE_MIN = 80
 STILL_RANGE_MAX = 120
@@ -711,7 +713,7 @@ vframes = 4
 frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2( 0, -1 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -761,5 +763,5 @@ one_shot = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
+position = Vector2( 0, -1 )
 shape = SubResource( 41 )

@@ -16,6 +16,7 @@ signal wave_stopped(wait_time)
 signal enemy_slain(current_number_of_enemies)
 
 func _ready() -> void:
+	randomize()
 	$OleadaTimer.connect("timeout", self, "oleada_on_timeout")
 	
 func _process(_delta): #0-1, pause
@@ -49,7 +50,10 @@ func removeNPC(npc): #que mas?
 	npc.queue_free()
 
 func addEnemy(enemy):
-	get_parent().add_child(enemy)
+	var circle = factory.new_tp_circle()
+	circle.global_position = enemy.position
+	get_parent().add_child(circle)
+	circle.init(rand_range(1, 4),enemy)
 	number_of_enemies = number_of_enemies + 1
 
 func addActiveSpell(spell):
