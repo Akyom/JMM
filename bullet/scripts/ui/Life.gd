@@ -1,6 +1,6 @@
 extends Control
 
-onready var player = get_node("../../../Player")
+onready var player = get_node("../../Player")
 onready var heart_full = $HeartFull
 onready var heart_empty = $HeartEmpty 
 

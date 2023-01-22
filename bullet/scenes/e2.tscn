@@ -697,7 +697,6 @@ hframes = 4
 vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 41 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -729,7 +728,6 @@ one_shot = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 shape = SubResource( 1 )
 
 [node name="DamageTimer" type="Timer" parent="."]

@@ -18,6 +18,8 @@ export var movil = true
 
 onready var playback = $AnimationTree.get("parameters/playback")
 
+signal i_died(me)
+
 func move():
 	if movil:
 		linear_vel.x = move_toward(linear_vel.x, target_vel.x * MAX_SPEED, ACCELERATION)

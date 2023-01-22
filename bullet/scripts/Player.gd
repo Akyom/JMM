@@ -33,16 +33,13 @@ func input():
 		var npcs = get_tree().get_nodes_in_group("NPC")
 		var npc_close = false
 		for npc in npcs:
-			if npc.global_position.distance_to(self.global_position):
+			if npc.global_position.distance_to(self.global_position) < 50:
 				emit_signal("npc_next", npc)
 				npc_close = true
 				break
-		#if not npc_close:
-		#	emit_signal("active")
-	if Input.is_action_just_pressed("ability_reject"):
-		active()
-		pass
-	
+		if not npc_close:
+			active()
+			pass
 	
 	
 func shoot():
