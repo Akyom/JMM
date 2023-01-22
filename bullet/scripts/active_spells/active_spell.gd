@@ -22,6 +22,9 @@ var has_body: bool = true
 ##       Active spells should change this value
 var indx: int = 0
 
+## icon: The sprite for visualization on minimap purposes.
+##
+onready var icon = $Sprite
 
 ## _ready(): Sets a signal to body_entered
 func _ready() -> void:
@@ -30,11 +33,13 @@ func _ready() -> void:
 
 ## remove_body(): Removes the body of the active spell from the scene.
 func remove_body() -> void:
+	has_body = false
 	self.get_node("Sprite").set_deferred("visible", false)
 	self.get_node("CollisionShape2D").set_deferred("disabled", true)
 
 ## add_body(): Adds the body of the active spell to the scene.
 func add_body() -> void:
+	has_body = true
 	self.get_node("Sprite").set_deferred("visible", true)
 	self.get_node("CollisionShape2D").set_deferred("disabled", false)
 

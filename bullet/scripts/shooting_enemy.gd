@@ -5,7 +5,6 @@ class_name Shooting_Enemy, "res://icons/Enemy1.png"
 export(int) var STILL_RANGE_MIN
 export(int) var STILL_RANGE_MAX
 var way = 0
-
 export(Resource) var Bullet
 
 func _ready() -> void:
@@ -14,7 +13,7 @@ func _ready() -> void:
 	$AttackTimer.connect("timeout", self, "attack_on_timeout")
 	$StillTimer.connect("timeout", self, "still_on_timeout")
 	#$Area2D.connect("body_entered", self, "on_body_entered")
-
+	minimap_icon = "enemy1"
 func IA():
 	ShootIA()
 	MoveIA()

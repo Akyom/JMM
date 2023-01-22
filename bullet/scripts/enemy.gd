@@ -16,9 +16,11 @@ var indx = -1
 signal i_died(me)
 
 func _ready() -> void:
+	minimap_icon = "enemy"
 	$ChasingTimer.connect("timeout", self, "chasing_on_timeout")
 	$Area2D.connect("body_entered", self, "on_body_entered")
 	var GamePlay = get_node("../GamePlay")
+	minimap_icon = "enemy2"
 	connect("i_died", GamePlay, "enemy_died")
 
 func _physics_process(_delta):
@@ -27,7 +29,7 @@ func _physics_process(_delta):
 	IA()
 	animation()
 	move()
-				
+
 func IA():	
 	target_vel.x = 0
 	target_vel.y = 0

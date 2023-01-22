@@ -12,6 +12,7 @@ var current_active = null
 func _ready() -> void:
 	#connect("active"..
 	var GamePlay = get_node("../GamePlay") #Hacer un signal handler??
+	minimap_icon = "player"
 	connect("npc_next", GamePlay, "npc_action")
 
 func _physics_process(_delta):

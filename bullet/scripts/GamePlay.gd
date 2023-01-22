@@ -50,6 +50,7 @@ func removeNPC(npc): #que mas?
 
 func addEnemy(enemy):
 	get_parent().add_child(enemy)
+	
 	number_of_enemies = number_of_enemies + 1
 
 func addActiveSpell(spell):
