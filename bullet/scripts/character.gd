@@ -27,28 +27,31 @@ func move():
 		linear_vel =  move_and_slide(linear_vel, Vector2.UP)
 	
 func animation():
-	if linear_vel.x == 0 and linear_vel.y == 0:
-		var current_node = playback.get_current_node()
-		#print(current_node)
-		if current_node == "walk" or current_node == "appear":
-			playback.travel("idle")
-		elif current_node == "walk back":
-			playback.travel("idle back")
-		elif current_node == "walk right":
-			playback.travel("idle right")
-		elif current_node == "walk left":
-			playback.travel("idle left")
-	elif $DamageTimer.is_stopped():	
-		if abs(linear_vel.x) > abs(linear_vel.y):
-			if linear_vel.x > 10:
-				playback.travel("walk right")
-			elif linear_vel.x < -10:
-				playback.travel("walk left")
-		else:
-			if linear_vel.y > 10:
-				playback.travel("walk")
-			elif linear_vel.y < -10:
-				playback.travel("walk back")
+	if HP > 0:
+		if linear_vel.x == 0 and linear_vel.y == 0:
+			var current_node = playback.get_current_node()
+			#print(current_node)
+			if current_node == "walk" or current_node == "appear":
+				playback.travel("idle")
+			elif current_node == "walk back":
+				playback.travel("idle back")
+			elif current_node == "walk right":
+				playback.travel("idle right")
+			elif current_node == "walk left":
+				playback.travel("idle left")
+		elif $DamageTimer.is_stopped():	
+			if abs(linear_vel.x) > abs(linear_vel.y):
+				if linear_vel.x > 10:
+					playback.travel("walk right")
+				elif linear_vel.x < -10:
+					playback.travel("walk left")
+			else:
+				if linear_vel.y > 10:
+					playback.travel("walk")
+				elif linear_vel.y < -10:
+					playback.travel("walk back")
+	else:
+		playback.travel("disappear")
 
 func take_damage(instigator: Node2D):
 	if not invulnerability:
@@ -58,7 +61,7 @@ func take_damage(instigator: Node2D):
 		linear_vel.y = push.y * DMG_SPEED * 3
 		$DamageTimer.start()
 		HP = HP - instigator.DAMAGE
-		if HP < 0:
+		if HP <= 0:
 			emit_signal("i_died", self)
 	return not invulnerability
 
