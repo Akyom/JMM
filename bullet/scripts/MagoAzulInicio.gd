@@ -16,3 +16,8 @@ func player_input():
 	emit_signal("end_pause")
 	emit_signal("bye", self)
 	queue_free()
+
+func get_minimap_icon(tab):
+	if (tab):
+		return $MinimapIcon.duplicate()
+	return $GenericMinimapIcon.duplicate()

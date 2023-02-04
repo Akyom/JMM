@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemy2_aux.png-403ab181918a303a743d001e3ff46a9b.stex"
+path="res://.import/NPC_generic.png-51752d411e99eeb3e28e289c0e38973d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/minimap/enemy2_aux.png"
-dest_files=[ "res://.import/enemy2_aux.png-403ab181918a303a743d001e3ff46a9b.stex" ]
+source_file="res://sprites/minimap/NPC_generic.png"
+dest_files=[ "res://.import/NPC_generic.png-51752d411e99eeb3e28e289c0e38973d.stex" ]
 
 [params]
 

@@ -24,7 +24,7 @@ var indx: int = 0
 
 ## icon: The sprite for visualization on minimap purposes.
 ##
-onready var icon = $Sprite
+onready var minimap_icon_texture_path = $Sprite.texture.resource_path
 
 ## _ready(): Sets a signal to body_entered
 func _ready() -> void:
@@ -72,3 +72,9 @@ func on_body_entered(body: Node) -> void:
 		body.pick_up_active(self)
 		return
 	return
+
+func get_minimap_icon(tab):
+	return $Sprite.duplicate()
+
+func minimap_showable():
+	return has_body

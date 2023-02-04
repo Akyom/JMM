@@ -14,11 +14,9 @@ var direction_to_player
 var indx = -1
 
 func _ready() -> void:
-	minimap_icon = "enemy"
 	$ChasingTimer.connect("timeout", self, "chasing_on_timeout")
 	$Area2D.connect("body_entered", self, "on_body_entered")
 	var GamePlay = get_node("../GamePlay")
-	minimap_icon = "enemy2"
 	connect("i_died", GamePlay, "enemy_died")
 
 func _physics_process(_delta):
@@ -64,3 +62,7 @@ func on_body_entered(body: Node):
 		body.take_damage(self)
 		$HitTimer.start()
 
+func get_minimap_icon(tab):
+	if (tab):
+		return $MinimapIcon.duplicate()
+	return $GenericMinimapIcon.duplicate()

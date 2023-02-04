@@ -8,11 +8,11 @@ var shoot_v = Vector2(0,0)
 signal npc_next(me)
 signal health_changed(new_value)
 var current_active = null
+var tab_pressing = false
 
 func _ready() -> void:
 	#connect("active"..
 	var GamePlay = get_node("../GamePlay") #Hacer un signal handler??
-	minimap_icon = "player"
 	connect("npc_next", GamePlay, "npc_action")
 
 func _physics_process(_delta):
@@ -41,6 +41,10 @@ func input():
 			active()
 			pass
 	
+	if (Input.is_action_pressed("minimap icons")):
+		tab_pressing = true
+	else:
+		tab_pressing = false
 	
 func shoot():
 	if shoot_v.length() != 0 and $ShootCooldown.is_stopped():

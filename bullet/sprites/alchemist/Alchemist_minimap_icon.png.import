@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemy2.png-9b79616ee3ab661168d337036bf08069.stex"
+path="res://.import/Alchemist_minimap_icon.png-43b39dbe4439069cb46214c49d5c9295.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/minimap/enemy2.png"
-dest_files=[ "res://.import/enemy2.png-9b79616ee3ab661168d337036bf08069.stex" ]
+source_file="res://sprites/alchemist/Alchemist_minimap_icon.png"
+dest_files=[ "res://.import/Alchemist_minimap_icon.png-43b39dbe4439069cb46214c49d5c9295.stex" ]
 
 [params]
 

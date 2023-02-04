@@ -1,8 +1,10 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://scripts/enemy.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemy2/infant_smoke.png" type="Texture" id=2]
 [ext_resource path="res://sprites/enemy2/infant_move.png" type="Texture" id=3]
+[ext_resource path="res://sprites/enemy2/Enemy2_minimap_icon.png" type="Texture" id=4]
+[ext_resource path="res://sprites/minimap/Enemy_generic.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=41]
 radius = 5.0
@@ -733,3 +735,11 @@ shape = SubResource( 1 )
 [node name="DamageTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="MinimapIcon" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 4 )
+
+[node name="GenericMinimapIcon" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 5 )

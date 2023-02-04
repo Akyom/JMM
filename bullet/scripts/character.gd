@@ -9,7 +9,6 @@ export(int) var DMG_SPEED = 250
 export(int) var ACCELERATION
 export(int) var MAX_HP = 2
 export(int) var HP = 2
-var minimap_icon = "null"
 
 var update_animation = true
 
@@ -65,3 +64,9 @@ func take_damage(instigator: Node2D):
 func setPosition(x, y):
 	global_position = Vector2(x, y)
 	pass
+
+func get_minimap_icon(tab):
+	return $MinimapIcon.duplicate()
+	
+func minimap_showable():
+	return true

@@ -13,7 +13,6 @@ func _ready() -> void:
 	$AttackTimer.connect("timeout", self, "attack_on_timeout")
 	$StillTimer.connect("timeout", self, "still_on_timeout")
 	#$Area2D.connect("body_entered", self, "on_body_entered")
-	minimap_icon = "enemy1"
 func IA():
 	ShootIA()
 	MoveIA()
@@ -83,3 +82,10 @@ func fire(shoot_v: Vector2):
 	bullet.global_position = $BulletSpawn.global_position
 	bullet._target = _target
 	get_parent().add_child(bullet)
+
+func get_minimap_icon(tab):
+	if (not tab):
+		return $GenericMinimapIcon.duplicate()
+	if (HP < MAX_HP):
+		return $DamagedMinimapIcon.duplicate()
+	return $MinimapIcon.duplicate()
