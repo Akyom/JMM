@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://sprites/alchemist/Alchemist_minimap_icon.png" type="Texture" id=1]
 [ext_resource path="res://sprites/alchemist/Alchemist_move.png" type="Texture" id=2]
@@ -651,6 +651,9 @@ tracks/3/keys = {
 [sub_resource type="AnimationNodeAnimation" id=78]
 animation = "appear"
 
+[sub_resource type="AnimationNodeAnimation" id=81]
+animation = "disappear"
+
 [sub_resource type="AnimationNodeAnimation" id=53]
 animation = "idle back"
 
@@ -718,9 +721,13 @@ animation = "walk"
 [sub_resource type="AnimationNodeStateMachineTransition" id=79]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=82]
+
 [sub_resource type="AnimationNodeStateMachine" id=51]
 states/appear/node = SubResource( 78 )
 states/appear/position = Vector2( 395.391, -129.569 )
+states/disappear/node = SubResource( 81 )
+states/disappear/position = Vector2( 608.391, -134.018 )
 states/idle/node = SubResource( 14 )
 states/idle/position = Vector2( 274, 55 )
 "states/idle back/node" = SubResource( 53 )
@@ -737,7 +744,7 @@ states/walk/position = Vector2( 102, -66 )
 "states/walk left/position" = Vector2( 48.3915, 334.766 )
 "states/walk right/node" = SubResource( 58 )
 "states/walk right/position" = Vector2( 737.391, -40.2342 )
-transitions = [ "walk", "idle", SubResource( 37 ), "idle", "walk", SubResource( 31 ), "idle right", "walk right", SubResource( 59 ), "walk right", "idle right", SubResource( 60 ), "idle right", "idle back", SubResource( 61 ), "idle back", "idle right", SubResource( 62 ), "idle right", "idle", SubResource( 63 ), "idle", "idle right", SubResource( 64 ), "idle left", "idle back", SubResource( 65 ), "idle back", "idle left", SubResource( 66 ), "idle left", "idle", SubResource( 67 ), "idle", "idle left", SubResource( 68 ), "walk left", "idle left", SubResource( 69 ), "idle left", "walk left", SubResource( 70 ), "idle back", "walk back", SubResource( 71 ), "walk back", "idle back", SubResource( 72 ), "idle left", "idle right", SubResource( 73 ), "idle right", "idle left", SubResource( 74 ), "idle", "idle back", SubResource( 75 ), "idle back", "idle", SubResource( 76 ), "appear", "idle", SubResource( 79 ) ]
+transitions = [ "walk", "idle", SubResource( 37 ), "idle", "walk", SubResource( 31 ), "idle right", "walk right", SubResource( 59 ), "walk right", "idle right", SubResource( 60 ), "idle right", "idle back", SubResource( 61 ), "idle back", "idle right", SubResource( 62 ), "idle right", "idle", SubResource( 63 ), "idle", "idle right", SubResource( 64 ), "idle left", "idle back", SubResource( 65 ), "idle back", "idle left", SubResource( 66 ), "idle left", "idle", SubResource( 67 ), "idle", "idle left", SubResource( 68 ), "walk left", "idle left", SubResource( 69 ), "idle left", "walk left", SubResource( 70 ), "idle back", "walk back", SubResource( 71 ), "walk back", "idle back", SubResource( 72 ), "idle left", "idle right", SubResource( 73 ), "idle right", "idle left", SubResource( 74 ), "idle", "idle back", SubResource( 75 ), "idle back", "idle", SubResource( 76 ), "appear", "idle", SubResource( 79 ), "idle", "disappear", SubResource( 82 ) ]
 start_node = "appear"
 graph_offset = Vector2( -201.609, -205.018 )
 

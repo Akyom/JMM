@@ -14,6 +14,7 @@ func _ready() -> void:
 	#connect("active"..
 	var GamePlay = get_node("../GamePlay") #Hacer un signal handler??
 	connect("npc_next", GamePlay, "npc_action")
+	connect("i_died", get_parent().get_parent(), "player_died")
 
 func _physics_process(_delta):
 	input()
@@ -58,11 +59,16 @@ func fire(shoot_v: Vector2):
 	get_parent().add_child(bullet)
 
 func take_damage(instigator: Node2D):
+	
 	var took_damage = .take_damage(instigator) # call parent's (Character) method
+	if HP <= 0:
+		invulnerability = true
+		movil = false
+		
 	# deal with the UI (hearts)
 	emit_signal("health_changed", HP)
 	return took_damage
-	# if HP == 0 do something (emit signal i_died?)
+	
 
 func active():
 	if (not current_active):

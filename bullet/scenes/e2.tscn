@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://scripts/enemy.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemy2/infant_smoke.png" type="Texture" id=2]
@@ -159,6 +159,58 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=45]
+resource_name = "disappear"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 12 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -588,6 +640,9 @@ tracks/3/keys = {
 [sub_resource type="AnimationNodeAnimation" id=43]
 animation = "appear"
 
+[sub_resource type="AnimationNodeAnimation" id=46]
+animation = "disappear"
+
 [sub_resource type="AnimationNodeAnimation" id=11]
 animation = "idle back"
 
@@ -655,9 +710,13 @@ animation = "walk"
 [sub_resource type="AnimationNodeStateMachineTransition" id=44]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=47]
+
 [sub_resource type="AnimationNodeStateMachine" id=39]
 states/appear/node = SubResource( 43 )
 states/appear/position = Vector2( 445, 42 )
+states/disappear/node = SubResource( 46 )
+states/disappear/position = Vector2( 710, 44 )
 states/idle/node = SubResource( 14 )
 states/idle/position = Vector2( 451, 186 )
 "states/idle back/node" = SubResource( 11 )
@@ -674,7 +733,7 @@ states/walk/position = Vector2( 291, 99 )
 "states/walk left/position" = Vector2( 291, 435 )
 "states/walk right/node" = SubResource( 17 )
 "states/walk right/position" = Vector2( 921, 99 )
-transitions = [ "idle", "idle right", SubResource( 19 ), "idle right", "idle", SubResource( 20 ), "idle left", "idle", SubResource( 21 ), "idle", "idle left", SubResource( 22 ), "idle left", "idle back", SubResource( 23 ), "idle back", "idle left", SubResource( 24 ), "idle back", "idle right", SubResource( 25 ), "idle right", "idle back", SubResource( 26 ), "idle back", "idle", SubResource( 27 ), "idle", "idle back", SubResource( 28 ), "idle right", "idle left", SubResource( 29 ), "idle left", "idle right", SubResource( 30 ), "idle right", "walk right", SubResource( 31 ), "walk right", "idle right", SubResource( 32 ), "idle", "walk", SubResource( 33 ), "walk", "idle", SubResource( 34 ), "walk left", "idle left", SubResource( 35 ), "idle left", "walk left", SubResource( 36 ), "idle back", "walk back", SubResource( 37 ), "walk back", "idle back", SubResource( 38 ), "appear", "idle", SubResource( 44 ) ]
+transitions = [ "idle", "idle right", SubResource( 19 ), "idle right", "idle", SubResource( 20 ), "idle left", "idle", SubResource( 21 ), "idle", "idle left", SubResource( 22 ), "idle left", "idle back", SubResource( 23 ), "idle back", "idle left", SubResource( 24 ), "idle back", "idle right", SubResource( 25 ), "idle right", "idle back", SubResource( 26 ), "idle back", "idle", SubResource( 27 ), "idle", "idle back", SubResource( 28 ), "idle right", "idle left", SubResource( 29 ), "idle left", "idle right", SubResource( 30 ), "idle right", "walk right", SubResource( 31 ), "walk right", "idle right", SubResource( 32 ), "idle", "walk", SubResource( 33 ), "walk", "idle", SubResource( 34 ), "walk left", "idle left", SubResource( 35 ), "idle left", "walk left", SubResource( 36 ), "idle back", "walk back", SubResource( 37 ), "walk back", "idle back", SubResource( 38 ), "appear", "idle", SubResource( 44 ), "idle", "disappear", SubResource( 47 ) ]
 start_node = "appear"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=40]
@@ -687,7 +746,6 @@ height = 6.0
 script = ExtResource( 1 )
 MAX_SPEED = 180
 ACCELERATION = 100
-HP = 1
 invulnerability = true
 movil = false
 VISION_RANGE = 380
@@ -704,6 +762,7 @@ shape = SubResource( 41 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
 anims/appear = SubResource( 42 )
+anims/disappear = SubResource( 45 )
 anims/idle = SubResource( 3 )
 "anims/idle back" = SubResource( 4 )
 "anims/idle left" = SubResource( 5 )
