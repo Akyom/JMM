@@ -7,6 +7,9 @@ var shoot_v = Vector2(0,0)
 
 signal npc_next(me)
 signal health_changed(new_value)
+signal spell_picked(spell)
+signal spell_dropped()
+
 var current_active = null
 var tab_pressing = false
 
@@ -81,6 +84,7 @@ func drop_active():
 	remove_child(current_active)
 	current_active.drop()
 	current_active = null
+	emit_signal("spell_dropped")
 	return
 
 func pick_up_active(spell):
@@ -93,4 +97,5 @@ func pick_up_active(spell):
 	current_active.picked_up_by(self)
 	add_child(current_active)
 	$PickActiveCooldown.start()
+	emit_signal("spell_picked", spell)
 	pass
